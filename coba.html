@@ -1,0 +1,35 @@
+<style>
+	body {
+		margin: 0;
+	}
+	img {
+		width: 100vw;
+	}
+</style>
+
+<body>
+	<img src="1.jpg">
+	<img src="2.jpg">
+</body>
+
+<script>
+	let images = document.querySelectorAll("img");
+
+	var i = 0;
+	var lastpos = document.body.scrollTop;
+	
+	window.addEventListener("scroll", function(event) {
+		console.log (lastpos);
+		if (lastpos == 0 || lastpos == 1320) {
+			var scrollPos = document.body.scrollTop;
+			if (scrollPos < lastpos) {
+				i = 0;
+			}
+			else if (scrollPos > lastpos) {
+				i = 1;
+			}
+			images[i].scrollIntoView({behavior: "smooth"});
+		}
+		lastpos = document.body.scrollTop;
+	});
+</script>
