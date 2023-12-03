@@ -1,35 +1,60 @@
 <style>
 	body {
 		margin: 0;
+		width: 100vw;
+		height: 9999;
 	}
 	img {
 		width: 100vw;
+	}
+	#direction {
+		position: fixed;
+		top: 0;
 	}
 </style>
 
 <body>
 	<img src="1.jpg">
 	<img src="2.jpg">
+	<div id="direction">
+		UP AND DOWN
+	</div>
 </body>
 
 <script>
 	let images = document.querySelectorAll("img");
+	let duration = 300;
+	let anchorPos = 4545;
+	var dirPrev = 0;
+	var tPrev = 0;
+	var t0 = 0;
+	var v0 = 0
+	var d0 = 0;
 
-	var i = 0;
-	var lastpos = document.body.scrollTop;
-	
 	window.addEventListener("scroll", function(event) {
-		console.log (lastpos);
-		if (lastpos == 0 || lastpos == 1320) {
-			var scrollPos = document.body.scrollTop;
-			if (scrollPos < lastpos) {
-				i = 0;
-			}
-			else if (scrollPos > lastpos) {
-				i = 1;
-			}
-			images[i].scrollIntoView({behavior: "smooth"});
+		let pos = document.body.scrollTop;
+		let delta = pos - anchorPos;
+		if (0 == delta)
+			return;
+		
+		let direction = delta > 0 ? 1 : -1;
+		let distance = Math.abs(delta);
+		let now = new Date();
+		let speed = distance / (now - t0);
+		if (
+			(direction != dirPrev) ||
+			((distance - d0 > 1) &&
+			 (now - tPrev > duration) &&
+			 (speed > v0))
+		) {
+			var display = document.getElementById("direction");
+			display.innerHTML += "<br>" + (pos > anchorPos ? "UP" : "DOWN") + " " + pos;
+			tPrev = now;
+			dirPrev = direction;
 		}
-		lastpos = document.body.scrollTop;
+		document.body.scrollTop = anchorPos;
+		t0 = now;
+		v0 = speed;
+		d0 = distance;
 	});
 </script>
