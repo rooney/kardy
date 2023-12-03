@@ -11,22 +11,24 @@
 	img {
 		width: 100vw;
 	}
-	#direction {
+	#content {
 		position: fixed;
 		top: 0;
+		transition-duration: 500ms;
+		transition-property: top;
 	}
 </style>
 
 <body>
-	<img src="1.jpg">
-	<img src="2.jpg">
-	<div id="direction">
-		Mobile:
+	<div id="content">
+		<img src="1.jpg">
+		<img src="2.jpg">
 	</div>
 </body>
 
 <script>
-	let images = document.querySelectorAll("img");
+	let content = document.getElementById("content");
+	let pageHeight = 1122 / 792 * window.innerWidth; 
 	let duration = 500;
 	let anchorPos = 4444;
 	var d0 = 0;
@@ -43,7 +45,7 @@
 		if ((Math.abs(distance - d0) > 20) &&
 			(now - t0 > duration)
 		) {
-			document.getElementById("direction").innerHTML += "<br>" + (pos > anchorPos ? "DOWN" : "UP") + " " + Math.abs(distance - d0);
+			content.style.top = pos > anchorPos ? -pageHeight : 0;
 			t0 = now;
 		}
 		document.body.scrollTop = anchorPos;
