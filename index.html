@@ -23,38 +23,27 @@
 
 <script>
 	let images = document.querySelectorAll("img");
-	let duration = 300;
-	let anchorPos = 4545;
-	var dirPrev = 0;
-	var tPrev = 0;
-	var t0 = 0;
-	var v0 = 0
+	let duration = 500;
+	let anchorPos = 4444;
 	var d0 = 0;
+	var t0 = 0;
 
 	window.addEventListener("scroll", function(event) {
 		let pos = document.body.scrollTop;
-		let delta = pos - anchorPos;
-		if (0 == delta)
+		let distance = pos - anchorPos;
+		if (0 == distance)
 			return;
-		
-		let direction = delta > 0 ? 1 : -1;
-		let distance = Math.abs(delta);
+
+		var display = document.getElementById("direction");
 		let now = new Date();
-		let speed = distance / (now - t0);
-		if (
-			(direction != dirPrev) ||
-			((distance - d0 > 1) &&
-			 (now - tPrev > duration) &&
-			 (speed > v0))
+		if ((Math.abs(distance - d0) > 20) &&
+			(now - t0 > duration)
 		) {
 			var display = document.getElementById("direction");
-			display.innerHTML += "<br>" + (pos > anchorPos ? "UP" : "DOWN") + " " + pos;
-			tPrev = now;
-			dirPrev = direction;
+			display.innerHTML += "<br>" + (pos > anchorPos ? "DOWN" : "UP") + " " + Math.abs(distance - d0);
+			t0 = now;
 		}
 		document.body.scrollTop = anchorPos;
-		t0 = now;
-		v0 = speed;
 		d0 = distance;
 	});
 </script>
