@@ -1,54 +1,119 @@
-<style>
-	body {
-		margin: 0;
-		width: 100vw;
-		height: 9999px;
-		scrollbar-width: none;
-	}
-	body::-webkit-scrollbar {
-	    display: none;
-	}
-	img {
-		width: 100vw;
-	}
-	#content {
-		position: fixed;
-		top: 0;
-		transition-duration: 500ms;
-		transition-property: top;
-	}
-</style>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<link href='https://fonts.cdnfonts.com/css/poppins' rel='stylesheet'>
+		<style>
+			body {
+				font-family: 'Poppins', sans-serif;
+				font-weight: bold;
+				margin: 0;
+				width: 100vw;
+				height: 9999px;
+				scrollbar-width: none;
+			}
+			body::-webkit-scrollbar {
+			    display: none;
+			}
+			img {
+				width: 100vw;
+			}
+			#content {
+				position: fixed;
+				top: 0;
+				transition: top 1s;
+			}
+			.center {
+				text-align: center;
+			}
+			.right {
+				text-align: right;
+			}
+			.white {
+				color: white;
+			}
+			.unbold {
+				font-weight: normal !important;
+			}
+			.size {
+				position: absolute;
+			}
+			._36 {
+				font-size: 26pt;
+				line-height: 33pt;
+			}
+			._36a {
+				font-size: 23pt;
+				line-height: 33pt;
+			}
+			._28 {
+				font-size: 20pt;
+				line-height: 20pt;
+			}
+			._24 {
+				font-size: 16pt;
+				line-height: 20pt;
+			}
+			._19 {
+				font-size: 13pt;
+				line-height: 20pt;
+			}
+		</style>
+	</head>
+	<body>
+		<div id='content'>
+			<img src='1.png'>
+			<img src='2.png'>
 
-<body>
-	<div id="content">
-		<img src="1.jpg">
-		<img src="2.jpg">
-	</div>
-</body>
+			<div style='left: 92; top: 20;' class='size _36 white center'>
+				もし店舗で商品の場所について <br>
+				聞かれたとき・・・
+			</div>
+			<div style='left: 15; top: 135;' class='size _19 center'>
+				スタッフは誰もいないな <br>
+				～聞きたいのに
+			</div>
+			<div style='left: 250; top: 140;' class='size _19'>
+				・・・どこにあり <br>
+				ますでしょうか？
+			</div>
+			<div style='left: 442; top: 161;' class='size _19'>
+				見つからないな～
+			</div>
+			<div style='left: 170; top: 411;' class='size _36a'>
+				スタッフの負担増
+			</div>
+			<div style='left: 39; top: 493' class='size _24 center'>
+				少々お待ちくださ <br>
+				い....
+			</div>
+			<div style='left: 407; top: 499' class='size _24'>
+				確認してきます
+			</div>
+			<div style='left: 470; top: 535' class='size _24'>
+				.................
+			</div>
+			<div style='left: 79; top: 593' class='size _28'>
+				機会ロス
+			</div>
+			<div style='left: 461; top: 595' class='size _24'>
+				不満な顧客
+			</div>
+			<div style='left: 247; top: 741' class='size _36 white'>
+				STAFF
+			</div>
+		</div>
+		<script>
+			let content = document.getElementById('content'),
+			    pageHeight = 1122 / 792 * window.innerWidth,
+			    anchorPos = 4444;
 
-<script>
-	let content = document.getElementById("content");
-	let pageHeight = 1122 / 792 * window.innerWidth; 
-	let duration = 500;
-	let anchorPos = 4444;
-	var d0 = 0;
-	var t0 = 0;
-
-	window.addEventListener("scroll", function(event) {
-		let pos = document.body.scrollTop;
-		let distance = pos - anchorPos;
-		if (0 == distance)
-			return;
-
-		var display = document.getElementById("direction");
-		let now = new Date();
-		if ((Math.abs(distance - d0) > 20) &&
-			(now - t0 > duration)
-		) {
-			content.style.top = pos > anchorPos ? -pageHeight : 0;
-			t0 = now;
-		}
-		document.body.scrollTop = anchorPos;
-		d0 = distance;
-	});
-</script>
+			window.addEventListener('scroll', function(event) {
+				let pos = document.body.scrollTop,
+				    distance = Math.abs(pos - anchorPos);
+				if (distance > 1)
+					content.style.top = pos > anchorPos ? -pageHeight : 0;
+				document.body.scrollTop = anchorPos;
+			});
+		</script>
+	</body>
+</html>
