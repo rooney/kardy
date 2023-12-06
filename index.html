@@ -9,18 +9,27 @@
 				margin: 0;
 				width: 100vw;
 				height: 9999px;
-				scrollbar-width: none;
+				scrollbar-width: none !important;
 			}
 			body::-webkit-scrollbar {
-			    display: none;
+			    display: none !important;
 			}
 			img {
 				width: 100vw;
+			}
+			#qr-code {
+				position: absolute;
+				top: 94%;
+				left: 27%;
+				width: 9%;
 			}
 			#content {
 				position: fixed;
 				top: 0;
 				transition: top 1s;
+			}
+			.page {
+				position: relative;
 			}
 			.center {
 				text-align: center;
@@ -44,6 +53,9 @@
 			._36a {
 				font-size: 5vw;
 			}
+			._32 {
+				font-size: 4.7vw;
+			}
 			._28 {
 				font-size: 4.4vw;
 			}
@@ -51,53 +63,94 @@
 				font-size: 3.7vw;
 				line-height: 4.6vw;
 			}
+			._22 {
+				font-size: 3.5vw;
+			}
 			._19 {
 				font-size: 3vw;
+				line-height: 4.5vw;
+			}
+			._13 {
+				font-size: 2.1vw;
 				line-height: 4.5vw;
 			}
 		</style>
 	</head>
 	<body>
 		<div id='content'>
-			<img src='1.png'>
-			<img src='2.png'>
-
-			<div style='left: 16vw; top: 4vw' class='size _36 white center'>
-				もし店舗で商品の場所について <br>
-				聞かれたとき・・・
+			<div class='page'>
+				<img src='1.png'>
+				<div style='left: 16vw; top: 4vw' class='size _36 white center'>
+					もし店舗で商品の場所について <br>
+					聞かれたとき・・・
+				</div>
+				<div style='left: 2vw; top: 22vw' class='size _19 center'>
+					スタッフは誰もいないな <br>
+					～聞きたいのに
+				</div>
+				<div style='left: 42vw; top: 23vw' class='size _19'>
+					・・・どこにあり <br>
+					ますでしょうか？
+				</div>
+				<div style='left: 73vw; top: 27vw' class='size _19'>
+					見つからないな～
+				</div>
+				<div style='left: 28vw; top: 69vw' class='size _36a'>
+					スタッフの負担増
+				</div>
+				<div style='left: 6.5vw; top: 82vw' class='size _24 center white'>
+					少々お待ちくださ <br>
+					い....
+				</div>
+				<div style='left: 67.5vw; top: 83vw' class='size _24 white'>
+					確認してきます
+				</div>
+				<div style='left: 79vw; top: 89vw' class='size _24 white'>
+					.................
+				</div>
+				<div style='left: 13vw; top: 97.7vw' class='size _28'>
+					機会ロス
+				</div>
+				<div style='left: 77vw; top: 99vw' class='size _24'>
+					不満な顧客
+				</div>
+				<div style='left: 41vw; top: 124vw' class='size _36 white'>
+					STAFF
+				</div>
 			</div>
-			<div style='left: 2vw; top: 22vw' class='size _19 center'>
-				スタッフは誰もいないな <br>
-				～聞きたいのに
-			</div>
-			<div style='left: 42vw; top: 23vw' class='size _19'>
-				・・・どこにあり <br>
-				ますでしょうか？
-			</div>
-			<div style='left: 73vw; top: 27vw' class='size _19'>
-				見つからないな～
-			</div>
-			<div style='left: 28vw; top: 69vw' class='size _36a'>
-				スタッフの負担増
-			</div>
-			<div style='left: 6.5vw; top: 82vw' class='size _24 center white'>
-				少々お待ちくださ <br>
-				い....
-			</div>
-			<div style='left: 67.5vw; top: 83vw' class='size _24 white'>
-				確認してきます
-			</div>
-			<div style='left: 79vw; top: 89vw' class='size _24 white'>
-				.................
-			</div>
-			<div style='left: 13vw; top: 97.7vw' class='size _28'>
-				機会ロス
-			</div>
-			<div style='left: 77vw; top: 99vw' class='size _24'>
-				不満な顧客
-			</div>
-			<div style='left: 41vw; top: 124vw' class='size _36 white'>
-				STAFF
+			<div class='page'>
+				<img src='2.png'>
+				<div style='left: 39.3%; top: 4.1%' class='size _19 white'>
+					商品の場所を案内するソリューション
+				</div>
+				<div style='left: 65.4%; top: 12.5%' class='size _32 white'>
+					3つステップ
+				</div>
+				<div style='left: 75%; top: 20%' class='size _24 white'>
+					聞く
+				</div>
+				<div style='left: 65%; top: 25.1%' class='size _22 white'>
+					写真・音声・テキスト 
+				</div>
+				<div style='left: 73.4%; top: 30%' class='size _24 white'>
+					入力で対応
+				</div>
+				<div style='left: 20.8%; top: 42.3%' class='size _28 white'>
+					商品確認
+				</div>
+				<div style='left: 72.7%; top: 42.9%' class='size _24 white'>
+					案内
+				</div>
+				<div style='left: 9.4%; top: 73%' class='size _19 white'>
+					探している商品を確認
+				</div>
+				<div style='left: 56.4%; top: 72.9%' class='size _19 white'>
+					商品の場所へ案内する
+				</div>
+				<div style='left: 32%; top: 84.1%' class='size _13'>
+					詳細について下記にご連絡を
+				</div>
+				<img id='qr-code' src='QRcode.svg'>
 			</div>
 		</div>
 		<script>
